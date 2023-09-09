@@ -32,8 +32,8 @@ const ConversationPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      prompt1: "",
-      prompt2: "",
+      resume: "",
+      description: "",
     }
   });
 
@@ -42,12 +42,18 @@ const ConversationPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt1 };
-      // const userMessage2: ChatCompletionRequestMessage = { role: "user", content: values.prompt2 };
+      const userMessage: ChatCompletionRequestMessage = { role: "user", content: `this is my resume - ${values.resume} , 
+      this is the job that i'm applying for- ${values.description},create a new resume that i can apply for the job, only show
+       the resume and not the other parts` };
+      // const userMessage: ChatCompletionRequestMessage = { role: "user", content: `This is my resume ${values.resume}, 
+      // create a new resume with this  ${values.description} job description` };
+
+      
+      // const userMessage2: ChatCompletionRequestMessage = { role: "user", content: `This is my job description ${values.description}` };
       // const otherMessage= {userMessage,userMessage2}
       const newMessages = [...messages, userMessage];
 
-      const response = await axios.post('/api/conversation', { messages: newMessages });
+      const response = await axios.post('/api/resume', { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
 
       form.reset();
@@ -92,7 +98,7 @@ const ConversationPage = () => {
           >
             
             <FormField
-              name="prompt1"
+              name="resume"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-10">
                   <FormControl className="m-0 p-0">
@@ -107,7 +113,7 @@ const ConversationPage = () => {
               )}
             />
             <FormField
-              name="prompt2"
+              name="description"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-10">
                   <FormControl className="m-0 p-0">
@@ -148,7 +154,7 @@ const ConversationPage = () => {
             >
               {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
               <ReactMarkdown className="text-sm overflow-hidden leading-7">
-                {message.content || " "}
+                {message.content || "\n"}
               </ReactMarkdown>
             </div>
           ))}

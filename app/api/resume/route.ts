@@ -13,7 +13,7 @@ const openai = new OpenAIApi(configuration);
 
 const instructionMessage: ChatCompletionRequestMessage = {
   role: "system",
-  content: "create a summary of the resume in 700 words  "
+  content: "create a new resume with the job description given"
 };
 // const instructionMessage2: ChatCompletionRequestMessage = {
 //   role: "system",
