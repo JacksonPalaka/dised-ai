@@ -32,20 +32,20 @@ const ConversationPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      prompt2:"",
       prompt1: "",
+      prompt2: "",
     }
   });
 
   const isLoading = form.formState.isSubmitting;
 
-  
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt1};
-      const userMessage2: ChatCompletionRequestMessage = { role: "user", content: values.prompt2};
+      const userMessage: ChatCompletionRequestMessage = { role: "user", content: values.prompt1 };
+      // const userMessage2: ChatCompletionRequestMessage = { role: "user", content: values.prompt2 };
       // const otherMessage= {userMessage,userMessage2}
-      const newMessages = [...messages, userMessage,userMessage2];
+      const newMessages = [...messages, userMessage];
 
       const response = await axios.post('/api/conversation', { messages: newMessages });
       setMessages((current) => [...current, userMessage, response.data]);
@@ -90,6 +90,7 @@ const ConversationPage = () => {
                 gap-2
               "
           >
+            
             <FormField
               name="prompt1"
               render={({ field }) => (
@@ -98,8 +99,8 @@ const ConversationPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="Paste your job description here"
-                    {...field}
+                      placeholder="Paste your resume here"
+                      {...field}
                     />
                   </FormControl>
                 </FormItem>
@@ -113,8 +114,8 @@ const ConversationPage = () => {
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                       disabled={isLoading}
-                      placeholder="Paste your resume here"
-                    {...field}
+                      placeholder="Paste your job description here"
+                      {...field}
                     />
                   </FormControl>
                 </FormItem>
@@ -147,7 +148,7 @@ const ConversationPage = () => {
             >
               {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
               <ReactMarkdown className="text-sm overflow-hidden leading-7">
-                {message.content || "\n"}
+                {message.content || " "}
               </ReactMarkdown>
             </div>
           ))}

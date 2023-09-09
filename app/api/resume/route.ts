@@ -11,16 +11,16 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const instructionMessage1: ChatCompletionRequestMessage = {
+const instructionMessage: ChatCompletionRequestMessage = {
   role: "system",
-  content: "create a new resume for the job ,don't write a letter just create a good resume "
+  content: "create a summary of the resume in 700 words  "
 };
-const instructionMessage2: ChatCompletionRequestMessage = {
-  role: "system",
-  content: "Generate an updated resume by extracting key information from previous versions."
-};
+// const instructionMessage2: ChatCompletionRequestMessage = {
+//   role: "system",
+//   content: "Generate an updated resume by extracting key information from previous versions."
+// };
 
-const instructionMessage= [{instructionMessage1,instructionMessage2}]
+// const instructionMessage= [{instructionMessage1,instructionMessage2}]
 
 export async function POST(
   req: Request
