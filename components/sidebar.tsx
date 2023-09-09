@@ -49,10 +49,10 @@ const routes = [
     href: '/code',
   },
   {
-    label:'AiResume',
+    label:'Resume Builder ',
     icon: Book ,
     color:"text-red-700",
-    href:'/aiResume',
+    href:'/resume',
   },
   {
     label: 'Settings',
@@ -71,11 +71,12 @@ export const Sidebar = ({
   const pathname = usePathname();
 
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
+    <div className="space-y-4 py-4 flex flex-col h-full bg-[#FFCA48] text-white">
+      {/* bg-[#111827] */}
       <div className="px-3 py-2 flex-1">
         <Link href="/dashboard" className="flex items-center pl-3 mb-14">
-          <div className="relative h-8 w-8 mr-4">
-            <Image fill alt="Logo" src="/logo1.png" />
+          <div className="relative h-8 w-8 mr-2">
+            <Image fill alt="Logo" src="/resize.png" />
           </div>
           <h1 className={cn("text-2xl font-bold", poppins.className)}>
             diSed
@@ -87,8 +88,8 @@ export const Sidebar = ({
               key={route.href} 
               href={route.href}
               className={cn(
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                pathname === route.href ? "text-white bg-white/10" : "text-zinc-400",
+                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-black hover:bg-black/10 rounded-lg transition",
+                pathname === route.href ? "text-black bg-white/10" : "text-black-400",
               )}
             >
               <div className="flex items-center flex-1">

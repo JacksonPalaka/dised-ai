@@ -53,6 +53,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@types/pdfjs-dist": "^2.10.378",
     "@types/react": "18.2.21",
     "prisma": "^5.2.0"
   }

@@ -37,5 +37,11 @@ export const tools = [
     color: "text-green-700",
     bgColor: "bg-green-700/10",
     href: '/code',
+  },{
+    label: 'Resume Builder',
+    icon: Book,
+    color: "text-red-700",
+    bgColor: "bg-green-700/10",
+    href: '/resume',
   },
 ];
