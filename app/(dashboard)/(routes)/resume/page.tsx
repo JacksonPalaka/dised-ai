@@ -134,7 +134,7 @@ const ConversationPage = () => {
         </Form>
       </div>
       <div className="space-y-4 mt-4">
-        <h1 className="text-xs ml-1">*   Use <b>PRO</b> version to paste pdfs.</h1>
+        <h1 className="text-xs ml-1">** Use <b>PRO</b> version to paste pdfs.</h1>
         {isLoading && (
           <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
             <Loader />

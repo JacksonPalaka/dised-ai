@@ -40,17 +40,7 @@ export async function GET() {
       customer_email: user.emailAddresses[0].emailAddress,
       line_items: [
         {
-          price_data: {
-            currency: "USD",
-            product_data: {
-              name: "Genius Pro",
-              description: "Unlimited AI Generations"
-            },
-            unit_amount: 2000,
-            recurring: {
-              interval: "month"
-            }
-          },
+          price:"price_1NohaUSAnvo3oMyq0KrMIvIo",
           quantity: 1,
         },
       ],
@@ -65,3 +55,5 @@ export async function GET() {
     return new NextResponse("Internal Error", { status: 500 });
   }
 };
+
+export const dynamic = 'force-dynamic'

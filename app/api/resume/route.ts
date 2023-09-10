@@ -15,12 +15,7 @@ const instructionMessage: ChatCompletionRequestMessage = {
   role: "system",
   content: "create a new resume with the job description given"
 };
-// const instructionMessage2: ChatCompletionRequestMessage = {
-//   role: "system",
-//   content: "Generate an updated resume by extracting key information from previous versions."
-// };
 
-// const instructionMessage= [{instructionMessage1,instructionMessage2}]
 
 export async function POST(
   req: Request
