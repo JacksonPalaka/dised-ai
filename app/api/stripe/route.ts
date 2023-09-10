@@ -40,9 +40,23 @@ export async function GET() {
       customer_email: user.emailAddresses[0].emailAddress,
       line_items: [
         {
-          price:"price_1NohaUSAnvo3oMyq0KrMIvIo",
+          price_data: {
+            currency: "USD",
+            product_data: {
+              name: "Genius Pro",
+              description: "Unlimited AI Generations"
+            },
+            unit_amount: 1000,
+            recurring: {
+              interval: "month"
+            }
+          },
           quantity: 1,
         },
+        // {
+        //   price:"price_1NokhaSAnvo3oMyqeGjPzn49",
+        //   quantity: 1,
+        // },
       ],
       metadata: {
         userId,
