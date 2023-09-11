@@ -40,7 +40,7 @@ export async function GET() {
       customer_email: user.emailAddresses[0].emailAddress,
       line_items: [
         {
-          price:"price_1NolyJSAnvo3oMyqXn6qrnmw",
+          price:"price_1NpBr3SAnvo3oMyqPt4I27OS",
           quantity: 1,
         },
       ],
